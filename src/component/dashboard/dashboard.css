@@ -16,3 +16,42 @@
     background-color: #eee;
     padding: 10px;
 }
+
+.profile-info{
+    display: flex;
+    padding:10px;
+    align-items: center;
+    gap:10px;
+    /* justify-content: space-between; */
+}
+
+.profile-info img{
+    height: 80px;
+    width:80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-info p{
+    /* margin-left:10px; */
+    color: white;    /* padding:10px; */
+    font-size:20px
+}
+
+.menu{
+    margin-top: 20px;
+    display: flex;
+    gap:10px;
+    flex-direction: column;
+}
+
+.menu-link{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding:10px;
+}
+
+.menu-link:hover{
+    background-color: blue;
+}
