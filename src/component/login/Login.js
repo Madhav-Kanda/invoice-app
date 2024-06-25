@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css'
 import {auth} from '../../firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -7,12 +7,17 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 const Login = () =>{
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const navigate = useNavigate()
     const submitHandler = (e)=>{
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredentials)=>{
             const user = userCredentials.user;
             console.log(user)
+            localStorage.setItem('cName', user.displayName)
+            localStorage.setItem('photoURL', user.photoURL)
+            navigate('/dashboard')
         })
         .catch((error)=>{
             console.log(error)

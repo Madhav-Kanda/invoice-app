@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../login/Login.css'
 import {auth, storage, db} from '../../firebase'
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
@@ -13,6 +13,7 @@ const Register = () =>{
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [file, setfile] = useState(null)
+    const navigate = useNavigate()
     const [displayName, setDisplayName] = useState('')
     const submitHandler = (e)=>{
         e.preventDefault()
@@ -36,6 +37,9 @@ const Register = () =>{
                         email:email,
                         photoURL:downloadedUrl
                     })
+                    navigate('/dashboard')
+                    localStorage.setItem('cName', newUser.user.displayName)
+                    localStorage.setItem('photoURL', newUser.user.photoURL)
                 })
                 .catch(err=>{
                     console.log(err)
