@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../login/Login.css'
 import {auth, storage, db} from '../../firebase'
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
-// import {ref} from 'firebase/storage'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { doc, setDoc } from 'firebase/firestore';
 

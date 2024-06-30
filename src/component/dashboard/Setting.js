@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Invoices = () => {
+const Setting = () => {
     return (
         <div>
-            <p> Invoices</p>
+            <p> Setting</p>
         </div>
     )
 }
-export default Invoices
+export default Setting
