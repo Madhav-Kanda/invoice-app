@@ -39,7 +39,7 @@ const NewInvoice = () => {
             date:Timestamp.fromDate(new Date())
         })
         console.log(data)
-        navigation('dashboard/invoices')
+        navigation('/dashboard/invoices')
     }
     return (
         <div>
