@@ -17,6 +17,7 @@ const Login = () =>{
             console.log(user)
             localStorage.setItem('cName', user.displayName)
             localStorage.setItem('photoURL', user.photoURL)
+            localStorage.setItem('email', user.email)
             navigate('/dashboard')
         })
         .catch((error)=>{

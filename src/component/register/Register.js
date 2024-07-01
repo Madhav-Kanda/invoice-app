@@ -39,6 +39,7 @@ const Register = () =>{
                     navigate('/dashboard')
                     localStorage.setItem('cName', newUser.user.displayName)
                     localStorage.setItem('photoURL', newUser.user.photoURL)
+                    localStorage.setItem('email', newUser.user.email)
                 })
                 .catch(err=>{
                     console.log(err)

@@ -1,8 +1,20 @@
 import React from 'react'
 import '../../component/dashboard/dashboard.css'
-import {Link, Outlet} from 'react-router-dom'
+import {Link, Outlet, useNavigate} from 'react-router-dom'
+import {auth} from '../../firebase'
+import {signOut} from 'firebase/auth'
 
 const Dashboard = ()=>{
+    const navigate = useNavigate()
+
+    const logout = ()=>{
+        signOut(auth).then(() => {
+           localStorage.clear()
+           navigate('/login')
+          }).catch((error) => {
+            console.log(error)
+          });
+    }
     return(
         <div className='dashboard-wrapper'>
             <div className='side-nav'>
@@ -10,7 +22,7 @@ const Dashboard = ()=>{
                     <img src={localStorage.getItem('photoURL')} alt="User Profile"/>
                     <div>
                     <p>{localStorage.getItem('cName')}</p>
-                    <button>logout</button>
+                    <button onClick={logout}>logout</button>
                     </div>
                 </div>
                 <hr/>

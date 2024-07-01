@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import {db} from '../../firebase'
 import {collection, deleteDoc, doc, getDocs} from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
 
 const Invoices = () => {
     const [invoices, setInvoices] = useState([]) 
+    const navigate = useNavigate()
+
     useEffect(()=>{
         getData()
     },[])
@@ -38,6 +41,7 @@ const Invoices = () => {
                     <p> {new Date(data.date.seconds*1000).toLocaleDateString()}</p>
                     <p>Rs. {data.total}</p>
                     <button onClick={()=>{deleteInvoice(data.id)}} className='delete-btn'>Delete</button>
+                    <button onClick={()=>{navigate('/dashboard/invoice-detail', {state:data})}} className='delete-btn view-btn'>View</button>
                 </div>
             ))}
         </div>

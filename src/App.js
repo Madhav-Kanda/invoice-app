@@ -8,7 +8,7 @@ import NewInvoice from './component/dashboard/NewInvoices';
 import Home from './component/dashboard/Home';
 import Invoices from './component/dashboard/Invoices';
 import Setting from './component/dashboard/Setting';
-
+import InvoiceDetail from './component/dashboard/InvoiceDetail'
 
 function App() {
   const myRouter = createBrowserRouter([
@@ -20,7 +20,8 @@ function App() {
       {path:'home', Component:Home},
       {path:'invoices', Component:Invoices},
       {path:'new-invoice', Component:NewInvoice},
-      {path:'setting', Component:Setting}
+      {path:'setting', Component:Setting},
+      {path:'invoice-detail', Component:InvoiceDetail}
     ]}
   ])
   return (
