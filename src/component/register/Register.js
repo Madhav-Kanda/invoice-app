@@ -13,7 +13,14 @@ const Register = () =>{
     const [password, setPassword] = useState('')
     const [file, setfile] = useState(null)
     const navigate = useNavigate()
+
     const [displayName, setDisplayName] = useState('')
+    const [imageUrl, setImageUrl] = useState(null)
+    const onSelectFile = (e)=>{
+        setfile(e.target.files[0])
+        setImageUrl(URL.createObjectURL(e.target.files[0]))
+    }
+
     const submitHandler = (e)=>{
         e.preventDefault()
         createUserWithEmailAndPassword(auth, email, password)
@@ -37,9 +44,10 @@ const Register = () =>{
                         photoURL:downloadedUrl
                     })
                     navigate('/dashboard')
-                    localStorage.setItem('cName', newUser.user.displayName)
-                    localStorage.setItem('photoURL', newUser.user.photoURL)
+                    localStorage.setItem('cName', displayName)
+                    localStorage.setItem('photoURL', downloadedUrl)
                     localStorage.setItem('email', newUser.user.email)
+                    localStorage.setItem('uid', newUser.user.uid)
                 })
                 .catch(err=>{
                     console.log(err)
@@ -65,8 +73,9 @@ const Register = () =>{
                         <input onChange={(e)=>{setEmail(e.target.value)}} className='login-input' type='text' placeholder='Email'/>
                         <input onChange={(e)=>{setDisplayName(e.target.value)}} className='login-input' type='text' placeholder='Company Name'/>
                         <input onChange={(e)=>{setPassword(e.target.value)}} className='login-input' type='password' placeholder='Password'/>
-                        <input onChange={(e)=>{setfile(e.target.files[0])}} style={{display:'none'}} className='login-input' type='file' ref={fileInputRef}/>
+                        <input onChange={(e)=>{onSelectFile(e)}} style={{display:'none'}} className='login-input' type='file' ref={fileInputRef}/>
                         <input className='login-input' type='button' value = 'select your logo' onClick={()=>{fileInputRef.current.click()}}/>
+                        <img className='image-preview' src={imageUrl} alt='preview'/>
                         <input className='login-input login-btn' type='submit'/>
                     </form>
                     <Link to='/login' className='register-link'>Login</Link>

@@ -22,7 +22,7 @@ const Dashboard = ()=>{
                     <img src={localStorage.getItem('photoURL')} alt="User Profile"/>
                     <div>
                     <p>{localStorage.getItem('cName')}</p>
-                    <button onClick={logout}>logout</button>
+                    <button className='logout-btn' onClick={logout}>logout</button>
                     </div>
                 </div>
                 <hr/>

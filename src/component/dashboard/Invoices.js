@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {db} from '../../firebase'
-import {collection, deleteDoc, doc, getDocs} from 'firebase/firestore'
+import {collection, deleteDoc, doc, getDocs, query, where} from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 
 const Invoices = () => {
@@ -11,7 +11,8 @@ const Invoices = () => {
         getData()
     },[])
     const getData = async()=>{
-        const querySnapshot = await getDocs(collection(db, 'invoices'));
+        const q = query(collection(db, 'invoices'), where('uid', "==", localStorage.getItem('uid')))
+        const querySnapshot = await getDocs(q);
         const data = querySnapshot.docs.map(doc=>({
             id:doc.id,
             ...doc.data()

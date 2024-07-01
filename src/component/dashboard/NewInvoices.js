@@ -36,6 +36,7 @@ const NewInvoice = () => {
             address:address,
             product:product,
             total:total,
+            uid:localStorage.getItem('uid'),
             date:Timestamp.fromDate(new Date())
         })
         console.log(data)

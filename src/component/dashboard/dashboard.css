@@ -6,7 +6,7 @@
 }
 
 .side-nav{
-    width:25%;
+    width:20%;
     background-color: #282c34;
 
 }
@@ -220,4 +220,10 @@ color: white;
 .invoice-top-header{
     display: flex;
     justify-content: flex-end;
+}
+
+.logout-btn{
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
