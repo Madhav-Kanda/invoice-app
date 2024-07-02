@@ -41,8 +41,8 @@ const Invoices = () => {
                     <p> {data.to}</p>
                     <p> {new Date(data.date.seconds*1000).toLocaleDateString()}</p>
                     <p>Rs. {data.total}</p>
-                    <button onClick={()=>{deleteInvoice(data.id)}} className='delete-btn'>Delete</button>
-                    <button onClick={()=>{navigate('/dashboard/invoice-detail', {state:data})}} className='delete-btn view-btn'>View</button>
+                    <button onClick={()=>{deleteInvoice(data.id)}} className='delete-btn'> <i className="fa-solid fa-trash"></i>Delete</button>
+                    <button onClick={()=>{navigate('/dashboard/invoice-detail', {state:data})}} className='delete-btn view-btn'><i className="fa-solid fa-eye"></i>View</button>
                 </div>
             ))}
         </div>

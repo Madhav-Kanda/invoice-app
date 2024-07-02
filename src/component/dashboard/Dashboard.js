@@ -27,10 +27,10 @@ const Dashboard = ()=>{
                 </div>
                 <hr/>
                 <div className='menu'>
-                <Link className='menu-link' to='/dashboard/home'> Home </Link>
-                <Link className='menu-link' to='/dashboard/invoices'> Invoices </Link>
-                <Link className='menu-link' to='/dashboard/new-invoice'> New Invoice </Link>
-                <Link className='menu-link' to='/dashboard/setting'> Settings </Link>
+                <Link className='menu-link' to='/dashboard/home'><i className="fa-solid fa-house"></i> Home </Link>
+                <Link className='menu-link' to='/dashboard/invoices'><i className="fa-solid fa-file-invoice"></i> Invoices </Link>
+                <Link className='menu-link' to='/dashboard/new-invoice'><i className="fa-solid fa-file-circle-plus"></i> New Invoice </Link>
+                <Link className='menu-link' to='/dashboard/setting'><i className="fa-solid fa-gear"></i> Settings </Link>
                 </div>
             </div>
             <div className='main-container'>
