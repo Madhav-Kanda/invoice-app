@@ -234,3 +234,76 @@ color: white;
     background-color: white;
     margin-top: 50px;
 }
+
+.update-cName{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.update-cName input{
+    width:80%;
+    padding: 10px;
+}
+
+.update-cName button{
+    width: 80%;
+    padding: 10px;
+    border: none;
+    background-color: rgb(45, 28, 238);
+    color: white;
+}
+
+.home-first-row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.home-box{
+    width:32%;
+    height: 27vh;
+    /* background-color: red; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px
+}
+
+.box-1{
+    background: linear-gradient(to right, #282c34, rgb(72,74,226));
+}
+
+.box-2{
+    background: linear-gradient(to right, #282c34, rgb(255, 7, 210));
+}
+
+.box-3{
+    background: linear-gradient(to right, #282c34, rgb(154, 142, 152));
+}
+
+.home-second-row{
+    display: flex;
+    margin-top:50px;
+    justify-content: space-between;
+}
+
+.chart-box{
+    width: 60%;
+    width: 60vh;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.recent-invoice-list{
+    width: 35%;
+    height: 60vh;
+    background-color: white;
+    border-radius: 10px;
+}
