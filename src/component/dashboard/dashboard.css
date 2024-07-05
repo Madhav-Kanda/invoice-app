@@ -307,3 +307,34 @@ color: white;
     background-color: white;
     border-radius: 10px;
 }
+
+.recent-invoice-list div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-header{
+    color: white;
+}
+
+.box-title{
+    color: yellow;
+}
+
+.recent-invoice-list div:hover{
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.recent-invoice-list p{
+    width: 50%;
+    padding: 10px;
+}
+
+.recent-invoice-list h1{
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(65, 50, 226);
+    color: white;
+}
