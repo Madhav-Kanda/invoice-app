@@ -1,14 +1,14 @@
 import React, { useRef,useState } from 'react'
 import {storage, auth, db} from '../../firebase'
-import {getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage'
+import { ref, uploadBytesResumable} from 'firebase/storage'
 import { updateProfile } from 'firebase/auth'
 import { doc, updateDoc } from 'firebase/firestore'
 
 const Setting = () => {
     const fileInputRef = useRef(null)
 
-    const [email,setEmail] = useState(localStorage.getItem('email'))
-    const [password, setPassword] = useState('')
+    // const [email,setEmail] = useState(localStorage.getItem('email'))
+    // const [password, setPassword] = useState('')
     const [file, setfile] = useState(null)
     const [displayName, setDisplayName] = useState(localStorage.getItem('cName'))
     const [imageUrl, setImageUrl] = useState(localStorage.getItem('photoURL'))
@@ -46,8 +46,7 @@ const Setting = () => {
     }
 
     return (
-        <div>
-            <p> Setting</p>
+        <div style={{display:'flex', justifyContent:'center'}}>
             <div className='setting-wrapper'>
                 <div className='profile-info update-cName'>
                     <img onClick={()=>{fileInputRef.current.click()}} className='pro' alt='profile-pic' src={imageUrl}/>

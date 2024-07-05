@@ -7,10 +7,12 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 const Login = () =>{
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [isLoading, setLoading] = useState(false)
 
     const navigate = useNavigate()
     const submitHandler = (e)=>{
         e.preventDefault();
+        setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredentials)=>{
             const user = userCredentials.user;
@@ -20,9 +22,11 @@ const Login = () =>{
             localStorage.setItem('email', user.email)
             localStorage.setItem('uid', user.uid)
             navigate('/dashboard')
+            setLoading(false)
         })
         .catch((error)=>{
             console.log(error)
+            setLoading(false)
         });
     }
     return (
@@ -34,9 +38,10 @@ const Login = () =>{
                 <div className = 'login-boxes login-right'>
                     <h2 className='login-heading'>Login</h2>
                     <form onSubmit={submitHandler}>
-                    <input onChange={(e)=>{setEmail(e.target.value)}} className='login-input' type='text' placeholder='Email'/>
-                    <input onChange={(e)=>{setPassword(e.target.value)}} className='login-input' type='password' placeholder='Password'/>
-                    <input className='login-input login-btn' type='submit'/>
+                    <input required onChange={(e)=>{setEmail(e.target.value)}} className='login-input' type='text' placeholder='Email'/>
+                    <input required onChange={(e)=>{setPassword(e.target.value)}} className='login-input' type='password' placeholder='Password'/>
+                    <button className='login-input login-btn' type='submit'> {isLoading && <i class="fa-solid fa-spinner fa-spin-pulse"></i>}
+                    Submit</button>
                     </form>
                     <Link to='/register' className='register-link'>Create an account</Link>
                 </div>

@@ -5,7 +5,7 @@ import { db } from '../../firebase'
 
 const Home = () => {
     const [total, setTotal] = useState(0)
-    const [totalInvoice, setTotalInvoice] = useState(2456)
+    // const [totalInvoice, setTotalInvoice] = useState(2456)
     const [totalMonthCollection, setTotalMonthCollection] = useState(4562)
     const [invoices, setInvoices] = useState([])
     // const [recentData, setRecentData] = useState([])
@@ -64,7 +64,7 @@ const Home = () => {
         }
         // console.log(data)
         data.forEach(d=>{
-            if(new Date(d.date.seconds*1000).getFullYear() == new Date().getFullYear())
+            if(new Date(d.date.seconds*1000).getFullYear() === new Date().getFullYear())
                 {chartData[new Date(d.date.seconds* 1000).toLocaleDateString('default',{month:'long'})] += d.total}
             })
         createChart(chartData)

@@ -11,11 +11,8 @@ const NewInvoice = () => {
     const [price, setPrice] = useState('')
     const [qty, setQty] = useState(1)
     const [total, setTotal] = useState(0)
+    const [isLoading, setLoading] = useState(false)
 
-    // const [product, setProduct] = useState([
-    //     {id:0, name:'laptop', price:'72000', qty:2},
-    //     {id:1, name:'phone', price:'7200', qty:1}
-    // ])
     const [product, setProduct] = useState([]) 
     const navigation = useNavigate()
     const addProduct = ()=>{
@@ -27,6 +24,7 @@ const NewInvoice = () => {
         setQty(1)
     }
     const saveData = async ()=>{
+        setLoading(true) 
         console.log(to, phone, address)
         console.log(product)
         console.log(total)
@@ -41,12 +39,13 @@ const NewInvoice = () => {
         })
         console.log(data)
         navigation('/dashboard/invoices')
+        setLoading(false)
     }
     return (
         <div>
             <div className='header-row'>
                 <p className='new-invoice-heading'> New Invoice</p>
-                <button onClick={saveData} className='add-btn' type='button'>Save Data</button>
+                <button onClick={saveData} className='add-btn' type='button'>{isLoading && <i class="fa-solid fa-spinner fa-spin-pulse"></i>} Save Data</button>
             </div>
         <form>
             <div className='first-row'>

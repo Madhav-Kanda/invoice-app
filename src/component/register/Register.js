@@ -16,6 +16,8 @@ const Register = () =>{
 
     const [displayName, setDisplayName] = useState('')
     const [imageUrl, setImageUrl] = useState(null)
+    const [isLoading, setLoading] = useState(false)
+
     const onSelectFile = (e)=>{
         setfile(e.target.files[0])
         setImageUrl(URL.createObjectURL(e.target.files[0]))
@@ -23,8 +25,10 @@ const Register = () =>{
 
     const submitHandler = (e)=>{
         e.preventDefault()
+        setLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then(newUser=>{
+            // setLoading(false)
             const date = new Date().getTime()
             const storageRef = ref(storage, `${displayName + date}`)
             uploadBytesResumable(storageRef, file)
@@ -44,6 +48,7 @@ const Register = () =>{
                         photoURL:downloadedUrl
                     })
                     navigate('/dashboard')
+                    setLoading(false)
                     localStorage.setItem('cName', displayName)
                     localStorage.setItem('photoURL', downloadedUrl)
                     localStorage.setItem('email', newUser.user.email)
@@ -54,6 +59,7 @@ const Register = () =>{
                 })
             })
             .catch(err=>{
+                setLoading(false)
                 console.log(err)
             })
         })
@@ -70,13 +76,14 @@ const Register = () =>{
                 <div className = 'login-boxes login-right'>
                     <h2 className='login-heading'>Create Your Account</h2>
                     <form onSubmit={submitHandler}>
-                        <input onChange={(e)=>{setEmail(e.target.value)}} className='login-input' type='text' placeholder='Email'/>
-                        <input onChange={(e)=>{setDisplayName(e.target.value)}} className='login-input' type='text' placeholder='Company Name'/>
-                        <input onChange={(e)=>{setPassword(e.target.value)}} className='login-input' type='password' placeholder='Password'/>
+                        <input required onChange={(e)=>{setEmail(e.target.value)}} className='login-input' type='text' placeholder='Email'/>
+                        <input required onChange={(e)=>{setDisplayName(e.target.value)}} className='login-input' type='text' placeholder='Company Name'/>
+                        <input required onChange={(e)=>{setPassword(e.target.value)}} className='login-input' type='password' placeholder='Password'/>
                         <input onChange={(e)=>{onSelectFile(e)}} style={{display:'none'}} className='login-input' type='file' ref={fileInputRef}/>
                         <input className='login-input' type='button' value = 'select your logo' onClick={()=>{fileInputRef.current.click()}}/>
                         {imageUrl != null && <img className='image-preview' src={imageUrl} alt='preview'/>}
-                        <input className='login-input login-btn' type='submit'/>
+                        <button className='login-input login-btn' type='submit'> {isLoading && <i class="fa-solid fa-spinner fa-spin-pulse"></i>}
+                         Submit</button>
                     </form>
                     <Link to='/login' className='register-link'>Login</Link>
                 </div>
