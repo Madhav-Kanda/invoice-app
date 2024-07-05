@@ -8,9 +8,10 @@ const Home = () => {
     const [totalInvoice, setTotalInvoice] = useState(2456)
     const [totalMonthCollection, setTotalMonthCollection] = useState(4562)
     const [invoices, setInvoices] = useState([])
+    // const [recentData, setRecentData] = useState([])
+
     useEffect(()=>{
         getData()
-        createChart()
     },[])
 
     const getData = async()=>{
@@ -21,9 +22,10 @@ const Home = () => {
             ...doc.data()
         }))
         setInvoices(data)
-        console.log('home', data)
+        // setRecentData(data.slice(0,6))
         getOverallTotal(data)
         getMonthsTotal(data)
+        monthWiseCollection(data)
     }
 
     const getOverallTotal = (invoiceList)=>{
@@ -37,27 +39,47 @@ const Home = () => {
     const getMonthsTotal = (invoiceList)=>{
         var mt = 0;
         invoiceList.forEach(data=>{
-            if(new Date(data.date.seconds*1000).getMonth() == new Date().getMonth())
+            if(new Date(data.date.seconds*1000).getMonth() === new Date().getMonth())
             {
-                console.log(data)
                 mt+= data.total
             }
         })
         setTotalMonthCollection(mt)
-        // setTotal(t)
         }
 
-    const createChart = ()=>{
-        // Chart.register(LinearScale, Bar)
+    const monthWiseCollection = (data)=>{
+         const chartData = {
+            'January':0,
+            'February':0,
+            'March':0,
+            'April':0,
+            'May':0,
+            'June':0,
+            'July':0,
+            'August':0,
+            'September':0,
+            'October':0,
+            'November':0,
+            'December':0,
+        }
+        // console.log(data)
+        data.forEach(d=>{
+            if(new Date(d.date.seconds*1000).getFullYear() == new Date().getFullYear())
+                {chartData[new Date(d.date.seconds* 1000).toLocaleDateString('default',{month:'long'})] += d.total}
+            })
+        createChart(chartData)
+    }
+
+    const createChart = (chartData)=>{
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
             type: 'bar',
             data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: Object.keys(chartData),
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Month wise Collection',
+                data: Object.values(chartData),
                 borderWidth: 1
             }]
             },
@@ -94,19 +116,18 @@ const Home = () => {
                     <h1>Recent Invoice List</h1>
                     <div>
                         <p>Customer Name</p>
-                        <p>10/05/2024</p>
+                        <p>Date</p>
+                        <p>Total</p>
                     </div>
-                    <div>
-                        <p>Customer Name</p>
-                        <p>10/05/2024</p>
-                    </div> <div>
-                        <p>Customer Name</p>
-                        <p>10/05/2024</p>
-                    </div>
-                    <div>
-                        <p>Customer Name</p>
-                        <p>10/05/2024</p>
-                    </div>
+                    {
+                        invoices.slice(0,6).map(data=>(
+                            <div>
+                                <p>{data.to}</p>
+                                <p>{new Date(data.date.seconds*1000).toLocaleDateString()}</p>
+                                <p>{data.total}</p>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>
