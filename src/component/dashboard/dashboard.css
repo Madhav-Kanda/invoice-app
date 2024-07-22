@@ -78,166 +78,77 @@
 }
 
 .new-invoice-heading {
-    font-size: 20px;
-    color: rgb(82, 80, 80);
+    font-size: 24px;
+    color: #333;
 }
 
 .first-row {
     display: flex;
-    gap: 2%;
-    margin-top: 10px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .first-row input {
-    padding: 7px;
-    width: 32%;
-    border: 1px solid #878282;
+    padding: 10px;
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .add-btn {
-    padding: 7px;
+    padding: 10px 20px;
     font-size: 15px;
     border: none;
     background-color: rgb(45, 28, 238);
     color: white;
-    margin-top: 10px;
+    border-radius: 5px;
     cursor: pointer;
-}
-
-.product-wrapper {
-    width: 100%;
-    padding: 5px;
-    background-color: white;
-    margin-top: 10px;
-    min-height: 300px;
-}
-
-.product-list {
-    display: flex;
-    gap: 50px;
-}
-
-.product-list p {
-    text-align: left;
-    width: 20%;
-}
-
-.total-wrapper {
-    margin-top: 80px;
-    display: flex;
-    justify-content: flex-end;
-    border-top: 2px dotted #898e96;
-    padding: 10px;
-}
-
-.total-wrapper p {
-    color: royalblue;
-    font-weight: bold;
-    width: 20%;
-    font-size: 20px;
 }
 
 .header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
-.header-row button {
-    background-color: rgb(241, 11, 126);
+.add-btn:hover {
+    background-color: #1a1a8f;
 }
 
-.box {
-    display: flex;
-    gap: 20px;
+.product-wrapper {
     background-color: white;
-    margin-top: 10px;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
-.box p {
-    width: 20%;
-    text-transform: capitalize;
-}
-
-.delete-btn {
-    padding: 5px;
-    background-color: rgb(245, 50, 50);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.view-btn {
-    background-color: blue;
-}
-
-.invoice-wrapper {
-    width: 50%;
-    background-color: white;
-    min-height: 90vh;
-    margin: auto;
-    padding: 20px;
-}
-
-.invoice-header {
+.product-list {
     display: flex;
     justify-content: space-between;
-}
-
-.company-logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    box-shadow: 1px 5px 10px;
     margin-bottom: 10px;
 }
 
-.customer-detail h1 {
-    color: rgb(45, 28, 238);
-    margin-bottom: 10px;
-}
-
-.cName {
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 20px;
-}
-
-.product-table {
-    margin-top: 20px;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th {
-    background-color: royalblue;
-    color: white;
-}
-
-th, td {
-    border: 1px solid #333;
+.product-list p {
+    flex: 1;
+    margin: 0;
     padding: 10px;
-    text-align: left;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    text-align: center;
 }
 
-tfoot {
-    background-color: royalblue;
-    color: white;
-}
-
-.print-btn {
-    border: none;
-    background-color: rgb(236, 9, 175);
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.invoice-top-header {
+.total-wrapper {
     display: flex;
     justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.total-wrapper p {
+    font-size: 20px;
+    font-weight: bold;
+    color: royalblue;
 }
 
 .setting-wrapper {
@@ -245,6 +156,9 @@ tfoot {
     min-height: 300px;
     background-color: white;
     margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .update-cName {
@@ -259,6 +173,8 @@ tfoot {
 .update-cName input {
     width: 80%;
     padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .update-cName button {
@@ -267,6 +183,28 @@ tfoot {
     border: none;
     background-color: rgb(45, 28, 238);
     color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-cName button:hover {
+    background-color: #1a1a8f;
+}
+
+.profile-info.update-cName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.profile-info.update-cName img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .home-first-row {
@@ -358,4 +296,140 @@ tfoot {
     background-color: rgb(45, 28, 238);
     color: white;
     cursor: pointer;
+}
+
+.invoice-wrapper {
+    width: 70%;
+    background-color: white;
+    min-height: 90vh;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-detail,
+.customer-detail {
+    width: 45%;
+}
+
+.company-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.cName {
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.product-table tfoot {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.print-btn {
+    border: none;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.print-btn:hover {
+    background-color: #2980b9;
+}
+
+.invoice-top-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.loading-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-icon {
+    font-size: 30px;
+}
+
+.invoices-list {
+    padding: 20px;
+}
+
+.invoice-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.invoice-box p {
+    margin: 0;
+    flex: 1;
+}
+
+.delete-btn, .view-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.view-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.view-btn:hover {
+    background-color: #2980b9;
 }
