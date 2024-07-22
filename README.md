@@ -23,7 +23,7 @@
 
 ## Technologies Used <a name="technologies-used"></a>
 
-- **Frontend**: React, TypeScript, Redux, Material-UI
+- **Frontend**: React, TypeScript
 - **Backend**: Firebase Firestore, Firebase Functions
 - **Authentication**: Firebase Authentication
 - **Deployment**: Vercel
