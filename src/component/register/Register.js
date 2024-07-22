@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../register/Register.css';
+import './Register.css';
 import { auth, storage, db } from '../../firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
@@ -10,7 +10,7 @@ const Register = () => {
     const fileInputRef = useRef(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [file, setfile] = useState(null);
+    const [file, setFile] = useState(null);
     const navigate = useNavigate();
 
     const [displayName, setDisplayName] = useState('');
@@ -18,7 +18,7 @@ const Register = () => {
     const [isLoading, setLoading] = useState(false);
 
     const onSelectFile = (e) => {
-        setfile(e.target.files[0]);
+        setFile(e.target.files[0]);
         setImageUrl(URL.createObjectURL(e.target.files[0]));
     };
 
