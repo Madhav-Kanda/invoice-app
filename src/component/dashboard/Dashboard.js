@@ -1,43 +1,42 @@
-import React from 'react'
-import '../../component/dashboard/dashboard.css'
-import {Link, Outlet, useNavigate} from 'react-router-dom'
-import {auth} from '../../firebase'
-import {signOut} from 'firebase/auth'
+import React from 'react';
+import '../../component/dashboard/dashboard.css';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase';
+import { signOut } from 'firebase/auth';
 
-const Dashboard = ()=>{
-    const navigate = useNavigate()
+const Dashboard = () => {
+    const navigate = useNavigate();
 
-    const logout = ()=>{
+    const logout = () => {
         signOut(auth).then(() => {
-           localStorage.clear()
-           navigate('/login')
-          }).catch((error) => {
-            console.log(error)
-          });
+            localStorage.clear();
+            navigate('/login');
+        }).catch((error) => {
+            console.log(error);
+        });
     }
-    return(
+
+    return (
         <div className='dashboard-wrapper'>
             <div className='side-nav'>
                 <div className='profile-info'>
-                    <img src={localStorage.getItem('photoURL')} alt="User Profile"/>
-                    <div>
+                    <img src={localStorage.getItem('photoURL')} alt="User Profile" />
                     <p>{localStorage.getItem('cName')}</p>
-                    <button className='logout-btn' onClick={logout}>logout</button>
-                    </div>
+                    <button className='logout-btn' onClick={logout}>Logout</button>
                 </div>
-                <hr/>
+                <hr />
                 <div className='menu'>
-                <Link className='menu-link' to='/dashboard/home'><i className="fa-solid fa-house"></i> Home </Link>
-                <Link className='menu-link' to='/dashboard/invoices'><i className="fa-solid fa-file-invoice"></i> Invoices </Link>
-                <Link className='menu-link' to='/dashboard/new-invoice'><i className="fa-solid fa-file-circle-plus"></i> New Invoice </Link>
-                <Link className='menu-link' to='/dashboard/setting'><i className="fa-solid fa-gear"></i> Settings </Link>
+                    <Link className='menu-link' to='/dashboard/home'>Home</Link>
+                    <Link className='menu-link' to='/dashboard/invoices'>Invoices</Link>
+                    <Link className='menu-link' to='/dashboard/new-invoice'>New Invoice</Link>
+                    <Link className='menu-link' to='/dashboard/setting'>Settings</Link>
                 </div>
             </div>
             <div className='main-container'>
-                <Outlet/>
+                <Outlet />
             </div>
         </div>
-    )
+    );
 }
 
-export default Dashboard
+export default Dashboard;
