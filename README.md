@@ -18,6 +18,7 @@
 - **User Authentication**: Secure login and registration using Firebase Authentication.
 - **Invoice Management**: Create, view, and delete invoices.
 - **Dashboard**: Visualize overall and monthly collection with charts.
+- **State Management**: Managed using Redux.
 - **Profile Management**: Update profile information and company logo.
 - **CI/CD Integration**: Automated deployment with Vercel.
 
