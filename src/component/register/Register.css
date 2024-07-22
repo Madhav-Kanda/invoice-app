@@ -1,4 +1,4 @@
-/* Login Page Specific Styles */
+/* Register Page Specific Styles */
 .login-wrapper {
     height: 100vh;
     width: 100%;
@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
-    width: 350px; /* Compact width */
+    width: 400px; /* Compact width */
 }
 
 .login-left {
@@ -81,4 +81,11 @@
 
 .register-link:hover {
     text-decoration: underline;
+}
+
+.image-preview {
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
