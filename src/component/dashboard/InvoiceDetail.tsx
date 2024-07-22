@@ -8,24 +8,34 @@ const InvoiceDetail = () => {
     const location = useLocation();
     const [data, setData] = useState(location.state);
 
+    interface Product {
+        id: string;
+        name: string;
+        price: number;
+        qty: number;
+      }
     const printInvoice = () => {
         const input = document.getElementById('invoice');
+        if (!input) {
+          console.error('Invoice element not found');
+          return;
+        }
+      
         html2canvas(input).then((canvas) => {
-            const imageData = canvas.toDataURL('image/png', 1.0);
-            const pdf = new jsPDF({
-                orientation: 'portrait',
-                unit: 'pt',
-                format: [612, 792]
-            });
-            pdf.internal.scaleFactor = 1;
-            const imageProps = pdf.getImageProperties(imageData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = imageProps.height * pdfWidth / imageProps.width;
-
-            pdf.addImage(imageData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save('invoice' + new Date());
+          const imageData = canvas.toDataURL('image/png', 1.0);
+          const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'pt',
+            format: [612, 792]
+          });
+          pdf.internal.scaleFactor = 1;
+          const imageProps = pdf.getImageProperties(imageData);
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = imageProps.height * pdfWidth / imageProps.width;
+          pdf.addImage(imageData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          pdf.save('invoice' + new Date());
         });
-    }
+      }
 
     return (
         <div>
@@ -35,9 +45,9 @@ const InvoiceDetail = () => {
             <div id='invoice' className='invoice-wrapper'>
                 <div className='invoice-header'>
                     <div className='company-detail'>
-                        <img className='company-logo' alt='logo' src={localStorage.getItem('photoURL')} />
-                        <p className='cName'>{localStorage.getItem('cName')}</p>
-                        <p>{localStorage.getItem('email')}</p>
+                    <img className='company-logo' alt='logo' src={localStorage.getItem('photoURL') || ''} />
+                    <p className='cName'>{localStorage.getItem('cName') || 'Unknown'}</p>
+                    <p>{localStorage.getItem('email') || 'Unknown'}</p>
                     </div>
                     <div className='customer-detail'>
                         <h1>Invoice</h1>
@@ -57,19 +67,19 @@ const InvoiceDetail = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.product.map((product, index) => (
-                            <tr key={product.id}>
-                                <td>{index + 1}</td>
-                                <td>{product.name}</td>
-                                <td>{product.price}</td>
-                                <td>{product.qty}</td>
-                                <td>{product.qty * product.price}</td>
-                            </tr>
-                        ))}
+                    {data.product.map((product: Product, index: number) => (
+                        <tr key={product.id}>
+                        <td>{index + 1}</td>
+                        <td>{product.name}</td>
+                        <td>{product.price}</td>
+                        <td>{product.qty}</td>
+                        <td>{product.qty * product.price}</td>
+                        </tr>
+                    ))}
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colSpan="4">Total</td>
+                            <td colSpan={4}>Total</td>
                             <td>{data.total}</td>
                         </tr>
                     </tfoot>

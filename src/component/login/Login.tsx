@@ -11,25 +11,25 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const submitHandler = (e) => {
+    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredentials) => {
-                const user = userCredentials.user;
-                console.log(user);
-                localStorage.setItem('cName', user.displayName);
-                localStorage.setItem('photoURL', user.photoURL);
-                localStorage.setItem('email', user.email);
-                localStorage.setItem('uid', user.uid);
-                navigate('/dashboard');
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setLoading(false);
-            });
-    };
+          .then((userCredentials) => {
+            const user = userCredentials.user;
+            console.log(user);
+            localStorage.setItem('cName', user.displayName || '');
+            localStorage.setItem('photoURL', user.photoURL || '');
+            localStorage.setItem('email', user.email || '');
+            localStorage.setItem('uid', user.uid);
+            navigate('/dashboard');
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.log(error);
+            setLoading(false);
+          });
+      };
 
     return (
         <div className='login-wrapper'>

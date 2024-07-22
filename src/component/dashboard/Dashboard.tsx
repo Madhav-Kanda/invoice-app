@@ -20,8 +20,8 @@ const Dashboard = () => {
         <div className='dashboard-wrapper'>
             <div className='side-nav'>
                 <div className='profile-info'>
-                    <img src={localStorage.getItem('photoURL')} alt="User Profile" />
-                    <p>{localStorage.getItem('cName')}</p>
+                <img src={localStorage.getItem('photoURL') || ''} alt="User Profile" />
+                <p>{localStorage.getItem('cName') || 'Unknown'}</p>
                     <button className='logout-btn' onClick={logout}>Logout</button>
                 </div>
                 <hr />
