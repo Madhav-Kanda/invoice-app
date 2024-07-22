@@ -1,8 +1,9 @@
 # Invoice App
+[![forthebadge made-with-typescript](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://www.typescriptlang.org/)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-![Logo](https://via.placeholder.com/150)
+<img src="https://github.com/user-attachments/assets/d1820dd9-9dba-4da0-bf5d-bc047398e941" alt="Invoice App" width="400" height="400">
 
-A comprehensive Invoice Management Application built with React, Firebase, and TypeScript, designed for software engineering internships to showcase front-end and back-end integration, state management with Redux, and responsive UI.
 
 ## Table of Contents
 
@@ -18,9 +19,6 @@ A comprehensive Invoice Management Application built with React, Firebase, and T
 - **Invoice Management**: Create, view, and delete invoices.
 - **Dashboard**: Visualize overall and monthly collection with charts.
 - **Profile Management**: Update profile information and company logo.
-- **Responsive Design**: Mobile-friendly and responsive UI.
-- **TypeScript**: Strongly typed code for better maintainability.
-- **State Management**: Managed using Redux.
 - **CI/CD Integration**: Automated deployment with Vercel.
 
 ## Technologies Used <a name="technologies-used"></a>
@@ -29,9 +27,6 @@ A comprehensive Invoice Management Application built with React, Firebase, and T
 - **Backend**: Firebase Firestore, Firebase Functions
 - **Authentication**: Firebase Authentication
 - **Deployment**: Vercel
-- **Testing**: Jest
-- **Build Tools**: Webpack, Babel
-- **Code Quality**: ESLint, Prettier
 
 ## Installation <a name="installation"></a>
 
