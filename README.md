@@ -63,7 +63,8 @@ To get a local copy up and running, follow these steps:
 5. Settings: Update your profile information and company logo.
 
 ## Screenshots <a name="screenshots"></a>
-
+<img width="1070" alt="image" src="https://github.com/user-attachments/assets/9d0ae01f-b1b4-4ab5-b7f4-6ecab80a3708">
+<img width="1070" alt="image" src="https://github.com/user-attachments/assets/1f837324-429d-4be4-b868-4e85c8a8bb18">
 
 
 ## Folder Structure <a name="folder-structure"></a>
