@@ -4,6 +4,7 @@
 
 <img src="https://github.com/user-attachments/assets/d1820dd9-9dba-4da0-bf5d-bc047398e941" alt="Invoice App" width="400" height="400">
 
+A responsive Invoice Management Application developed using React, TypeScript, Redux, and Firebase, featuring user authentication, invoice creation, and dashboard visualization. Leveraging Vercel’s CI/CD pipeline for automated build and deployment ensures efficient application delivery. Check out the live demo of the application [here](invoiceapp-web.vercel.app/).
 
 ## Table of Contents
 
@@ -11,6 +12,7 @@
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Screenshots](#screenshots)
 - [Folder Structure](#folder-structure)
 
 ## Features <a name="features"></a>
@@ -59,6 +61,9 @@ To get a local copy up and running, follow these steps:
 3. Dashboard: View your dashboard with overall and monthly collections.
 4. Invoices: Create, view, and manage invoices.
 5. Settings: Update your profile information and company logo.
+
+## Screenshots <a name="screenshots"></a>
+
 
 
 ## Folder Structure <a name="folder-structure"></a>
